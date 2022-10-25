@@ -5,6 +5,8 @@ from app.logger import init_logging,logger
 from starlette.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
+from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
+
 from starlette.middleware import Middleware
 from app.fb import fire_fb_pixel
 import httpx
@@ -82,7 +84,9 @@ routes = [
     Route('/api/submitform', endpoint=process,methods = ["POST"]),
 ]
 
-middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,]
+middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,
+                Middleware(HTTPSRedirectMiddleware)
+                ]
 
 app = Starlette(debug=False, routes=routes)
 init_logging()
