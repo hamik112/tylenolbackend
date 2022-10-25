@@ -1,14 +1,14 @@
 from starlette.applications import Starlette
 from starlette.routing import Route, Mount
 from starlette.responses import JSONResponse
-from logger import init_logging,logger
+from app.logger import init_logging,logger
 from starlette.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
-
+from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
-from fb import fire_fb_pixel
+from app.fb import fire_fb_pixel
 import httpx
 
 
@@ -85,7 +85,9 @@ routes = [
 ]
 
 middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,
-                Middleware(HTTPSRedirectMiddleware)
+                Middleware(HTTPSRedirectMiddleware),
+                Middleware(CORSMiddleware, allow_origins=['*'], allow_headers = ['*'],allow_methods = ['*'])
+
                 ]
 
 app = Starlette(debug=False, routes=routes,middlewears = middlewears)
