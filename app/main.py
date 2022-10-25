@@ -88,5 +88,5 @@ middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,
                 Middleware(HTTPSRedirectMiddleware)
                 ]
 
-app = Starlette(debug=False, routes=routes)
+app = Starlette(debug=False, routes=routes,middlewears = middlewears)
 init_logging()

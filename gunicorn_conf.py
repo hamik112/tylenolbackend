@@ -57,7 +57,7 @@ log_data = {
     "keepalive": keepalive,
     "errorlog": errorlog,
     "accesslog": accesslog,
-    "forwarded_allow_ips":"*",
+    "forwarded_allow_ips":'*',
     'proxy_allow_ips':'*',
     # Additional, non-gunicorn variables
     "workers_per_core": workers_per_core,
