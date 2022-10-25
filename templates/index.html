@@ -49,11 +49,8 @@
                 <img src="{{ url_for('static', path='/images/mom.jpg') }}" class="body-img"/>
                 <div id="contenthidden">
                     <div class="mx-auto">
-                        <p class="articletext">If you took Tylenol<sup class="smallerup">®</sup>  or a generic acetaminophen during your pregnancy & your child was diagnosed with Autism Spectrum Disorder you may qualify for major cash compensation.
-                        Use the form below to check if you are eligible for a large settlement.
-
-                        </p>
-
+                        <p class="articletext">If you took Tylenol<sup class="smallerup">®</sup>  or a generic acetaminophen during your pregnancy and your child was diagnosed with Autism Spectrum Disorder you may qualify for <strong>major cash compensation</strong>.
+                        Use the form below to check if you are eligible for a large settlement.</p>
                     </div>
                     <form action="{{url_for('process')}}" method="POST">
                         <div id="form">
@@ -141,7 +138,8 @@
                                 <div class="form-group">
                                     <div class="termsofservice mt-5">
                                         <input class="form-check-input" type="hidden" value="true" name="leadid_tcpa_disclosure" id="leadid_tcpa_disclosure"/>
-                                        <label class="form-check-label smallterms " for="leadid_tcpa_disclosure" id="leadid_tcpa_disclosure_label"> By clicking submit, I agree to the <a href="https://camplejune.consumerinjurysettlements.com/termsofservice" target="_blank">Terms</a> and <a href="https://camplejune.consumerinjurysettlements.com/privacypolicy" target="_blank">Privacy Policy</a> of this site; I consent to the transfer of information that I provided on this site to third-party legal service providers, non-legal service providers, third party partners, their affiliates, and service providers; I agree to be contacted by email & telephone, which may include artificial or pre-recorded calls and/or SMS text messages, delivered via automated technology, to the email and phone number that I have provided even if it's on a national or state Do-Not-Call List </label>
+                                        <label class="form-check-label smallterms " for="leadid_tcpa_disclosure" id="leadid_tcpa_disclosure_label"> By clicking submit, I agree to the <a href="https://camplejune.consumerinjurysettlements.com/termsofservice" target="_blank">Terms</a> and <a href="https://camplejune.consumerinjurysettlements.com/privacypolicy" target="_blank">Privacy Policy</a> of this site; I agree to be contacted by third-party legal service providers, their affiliates, and service providers at
+                                            the phone number supplied, even if it's on a national or state Do-Not-Call List. Calls/texts may employ automated dialing technology and prerecorded/artificial voice messages and emails. You are also confirming that you understand that your consent is not a condition of any purchase or obligation, and that this submission does not form an attorney/client relationship.</label>
                                     </div>
                                 </div>
                             </div>
