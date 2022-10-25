@@ -1,8 +1,7 @@
 from starlette.applications import Starlette
 from starlette.routing import Route, Mount
 from starlette.responses import JSONResponse
-from app.logger import init_logging, format_record,logger
-from app.routes import campaign_direct, click_redirect, postback
+from app.logger import init_logging,logger
 from starlette.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
