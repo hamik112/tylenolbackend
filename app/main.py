@@ -1,14 +1,14 @@
 from starlette.applications import Starlette
 from starlette.routing import Route, Mount
 from starlette.responses import JSONResponse
-from app.logger import init_logging,logger
+from logger import init_logging,logger
 from starlette.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 from starlette.middleware import Middleware
-from app.fb import fire_fb_pixel
+from fb import fire_fb_pixel
 import httpx
 
 

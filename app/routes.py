@@ -1,7 +1,7 @@
 from starlette.responses import RedirectResponse,PlainTextResponse
 from starlette.requests import Request
-from app.logger import logger
-from app.fb import fire_fb_pixel
+from logger import logger
+from fb import fire_fb_pixel
 
 
 async def click_redirect(request:Request):

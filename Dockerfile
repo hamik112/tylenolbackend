@@ -1,10 +1,10 @@
-FROM python:3.9-slim
-RUN apt-get update && apt-get install -y gunicorn && apt-get install -y uvicorn
-RUN mkdir /app
-WORKDIR /app
-ADD requirements.txt /app
-RUN pip3 install -r requirements.txt
-ADD . /app
-EXPOSE 8080
-RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["sh", "entrypoint.sh"]
+FROM tiangolo/uvicorn-gunicorn:python3.9-slim
+
+LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+COPY ./app /app
+COPY ./static /app/static
+COPY ./templates /app/templates
