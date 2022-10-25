@@ -60,7 +60,6 @@ log_data = {
     "forwarded_allow_ips":"*",
     'proxy_allow_ips':'*',
     # Additional, non-gunicorn variables
-    "proxy-headers":True,
     "workers_per_core": workers_per_core,
     "use_max_workers": use_max_workers,
     "host": host,
