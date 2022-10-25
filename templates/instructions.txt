@@ -1,0 +1,16 @@
+
+
+Instructions
+
+Setup a subdomain 
+	- tylenolautism.consumerinjurysettlements.com
+	- Serve Index.html on the root url
+	- /api/submitform
+		- Process the form data and post to LP API.
+		- Fire facebook conversion event
+			- Lead Event , change the dollar value to $40.
+		
+	/success
+		- Render success.html
+	/complete
+		- render complete.html

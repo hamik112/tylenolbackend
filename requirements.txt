@@ -1,0 +1,6 @@
+starlette[full]
+httpx
+loguru==0.5.3
+facebook_business
+gunicorn
+uvicorn
