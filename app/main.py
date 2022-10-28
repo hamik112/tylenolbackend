@@ -31,9 +31,18 @@ async def success(request):
 async def failure(request):
     return templates.TemplateResponse('complete.html', {'request': request})
 
+async def ccpa(request):
+    return templates.TemplateResponse('ccpa.html', {'request': request})
+
+
+async def process_ccpa(request):
+    payload = await request.json()
+    return JSONResponse({"Success":True})
 
 async def process(request):
     payload = await request.json()
+    payload['child_under_18'] = payload['child_under_18'].lower()
+    payload['asd_diagnosis'] = payload['asd_diagnosis'].lower()
     payload = {
                 'lp_campaign_id' : "6348d8d6859cf",
                 "lp_campaign_key" : "WtCHRxBbvYc9VLhkpJD7",
@@ -57,35 +66,38 @@ async def process(request):
                 "under_18" : payload['child_under_18'],
                 "diagnosed_asd" : payload['asd_diagnosis']
     }
+    logger.info(payload)
     async with httpx.AsyncClient() as client:
         r = await client.post('https://leadsapi.leadspediatrack.com/post.do', data = payload)
         r = r.json()
-    logger.info(r)
     if r.get('errors'):
         return JSONResponse({"error":True})
     else:
-        await fire_fb_pixel(
-                          access_token = access_token,
-                          pixel_id = pixel_id,
-                          url = url,
-                          ip_address = request.client.host,
-                          user_agent= request.headers['user-agent'],
-                          email = payload['email'],
-                          phone = payload['phonenumber']
-                          )
+        if payload['child_under_18'] == 'yes' and payload['diagnosed_asd'] == 'yes':
+            await fire_fb_pixel(
+                        access_token = access_token,
+                        pixel_id = pixel_id,
+                        url = url,
+                        ip_address = request.client.host,
+                        user_agent= request.headers['user-agent'],
+                        email = payload['email'],
+                        phone = payload['phonenumber']
+            )
         return JSONResponse({"success": True})
 
 
 routes = [
     Route('/', endpoint=index),
+    Route('/ccpa',endpoint = ccpa),
     Route('/success', endpoint=success),
     Route('/failure', endpoint=failure),
     Mount('/static', StaticFiles(directory='static'), name='static'),
+    Route('/api/ccpa', endpoint=process_ccpa,methods = ["POST"]),
     Route('/api/submitform', endpoint=process,methods = ["POST"]),
 ]
 
 middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,
-                Middleware(HTTPSRedirectMiddleware),
+#                Middleware(HTTPSRedirectMiddleware),
                 Middleware(CORSMiddleware, allow_origins=['*'], allow_headers = ['*'],allow_methods = ['*'])
 
                 ]

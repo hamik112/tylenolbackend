@@ -689,10 +689,8 @@ h6 {
 }
 
 .top-sec {
-    height: 50px;
-    padding-top: 10px;
-    padding-bottom: 16px;
-    background-color: #005d8f
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .logo-div {
@@ -1062,7 +1060,7 @@ h6 {
     }
 
     .subtitle {
-        font-size: 1.4em
+            font-size: 30px;
     }
 
     .bottom-sec {
@@ -1103,7 +1101,8 @@ h6 {
 
     .title {
         font-size: 1.85em;
-        line-height: 1.25
+        line-height: 1.25;
+        margin-bottom:0px;
     }
 
     .usa-footer-legal-text {
@@ -1161,13 +1160,15 @@ h6 {
 }
 
 .form-group {
-    margin-bottom: 1.25rem
+    margin-bottom: 15px;
 }
 
 .form-container {
     max-width: 520px;
-    padding: 10px;
-    margin: 0 auto
+    padding: 15px;
+    margin: 0 auto;
+    background: rgb(230, 230, 230);
+    border-radius: 4px;
 }
 
 .form-check-label {
@@ -1237,7 +1238,8 @@ h6 {
 
 .error_label {
     color: red;
-    margin-top: 10px
+    margin-top: 5px;
+    font-size:14px;
 }
 
 .mb-4 {
@@ -1741,6 +1743,11 @@ summary {
     border-radius: 0;
     -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.logol{
+    max-width:250px;
+    width:100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3421,4 +3428,7 @@ sup.smallerup{
 }
 .smallterms{
     font-size:14px;
+}
+.form-control-lg.form-control-lg.error{
+    border:2px solid red;
 }
