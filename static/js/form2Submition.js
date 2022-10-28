@@ -187,7 +187,7 @@ $("form").submit(function(e) {
                 success: function (response, status, xhr) {
                     form_submitting = false;
                     if (!response.error) {
-                        window.location.replace("/success");
+                        window.location.replace("/complete");
                     } else {
                         window.location.replace("/complete");
                         console.log(response)
