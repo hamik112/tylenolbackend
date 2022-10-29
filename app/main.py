@@ -72,15 +72,19 @@ async def process(request):
     if r.get('errors'):
         return JSONResponse({"error":True})
     else:
+
+
         if postdata['child_under_18'] == 'yes' and postdata['asd_diagnosis'] == 'yes':
             await fire_fb_pixel(
                         access_token = access_token,
                         pixel_id = pixel_id,
                         url = url,
+                        fname = postdata['first_name'],
+                        lname = postdata['last_name'],
                         ip_address = request.client.host,
                         user_agent= request.headers['user-agent'],
-                        email = postdata['email'],
-                        phone = postdata['phonenumber']
+                        email = postdata['email_address'],
+                        phone = postdata['phone_home']
             )
         return JSONResponse({"success": True})
 
