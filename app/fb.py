@@ -29,9 +29,8 @@ if __name__ =="__main__":
     import asyncio
 
     pixel_id = '612226083918432'
-    access_token = 'EAADoycsKvREBADZCRf0pOShuka5a2mrma8w9TP3hDhd7P6PwNNXktkFVtcnVXsxYroQwesx84aqjOkyxqhjXiPUG5lqcXZCtGG7krGxjZACKyiER78rqBH0gHaO7XuC9NdMu7ZA4qLDiC8daHEMKW89jiaHpEo49ZCKJ5ZBaDFZBbJDtVJKqVzwX31l7X6aRVgZD'
+    access_token = 'EAADoycsKvREBADvU6KgtAvLpJY5MA3DnNh6n9eiWxylU9MV5CjpN5tOWPAT1zkFvDhWrigUrUGmEC4bdUtU5ehIHxMJ6ahwZCZAgwGYaRLH16pBZAuDNrHdxJ7ktCht6gd1T8YKnKXu6PQvHr5qEsR8jV7PlbxOZBhW3wZC9H6nWizejZA1tH1Y8s8Qd20Bs0ZD'
     url = 'https://tylenolautism.consumerinjurysettlements.com'
-
     leads = [
         {
             'fname':"Kaitlyn",
