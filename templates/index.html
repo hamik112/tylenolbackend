@@ -47,14 +47,22 @@
         </div>
         <div class="mid-sec wf-section">
             <div class="mid-cont-wider w-container">
-                <h1 class="title">Tylenol<sup class="smallup">®</sup> Use during Pregnancy linked to Autism in Children</h1>
+
+
+                <h1 class="title">Mothers who took Tylenol<sup class="smallup">®</sup> during pregnancy and gave birth to a child that was diagnosed with Autism can get Compensation!</h1>
                 <img src="{{ url_for('static', path='/images/mom.jpg') }}" class="body-img"/>
                 <div id="contenthidden">
                     <div class="mx-auto">
-                        <p class="articletext">If you used Tylenol<sup class="smallerup">®</sup>  or an acetaminophen-based product during pregnancy and your child was diagnosed with Autism you may qualify for <strong>significant compensation</strong>.
-                        Fill out the form below to see if you qualify for compensation.</p>
+                        <p class="articletext">
+                            If you took Tylenol<sup class="smallerup">®</sup>  or generic acetaminophen during your pregnancy and your child was diagnosed with Autism you may qualify for <strong>significant compensation</strong>.
+                            Fill out the form below to see if you qualify for compensation.
+
+
+                        </p>
+
+
                     </div>
-                    <form action="{{url_for('process')}}" method="POST">
+                    <form action="{{url_for('process')}}" class="mb-5" method="POST">
                         <div id="form">
                             <div class='form-container'>
                                 <div class="text-indicator">
@@ -136,7 +144,7 @@
                                     <textarea name="description" id="description" type="text" class="form-control form-control-lg" rows="4" placeholder='Tell us a little about your situation.'></textarea>
                                     <div id="description_error" class="error_label"></div>
                                 </div>
-                                <button class="formbutton w-button" id="formsubmit">Check Compensation Eligibility</button>
+                                <button class="formbutton w-button" id="formsubmit">Submit Claim Now</button>
                                 <div class="form-group">
                                     <div class="termsofservice mt-5">
                                         <input class="form-check-input" type="hidden" value="true" name="leadid_tcpa_disclosure" id="leadid_tcpa_disclosure"/>
@@ -147,6 +155,43 @@
                             </div>
                         </div>
                     </form>
+
+
+                       <h3 class="subtitle font-semibold question-title">New Studies Link Tylenol to Autism</h3>
+
+
+
+                      <p class="articletext">
+                          Researchers from John Hopkins examined 20 years of studies of early life factors influencing pregnancy and child development and
+                          found children whose cord blood samples contained high levels of acetaminophen, the generic name for Tylenol were <strong> almost three times</strong> more likely to be diagnosed with autism spectrum disorder later in childhood.
+
+                        </p>
+                      <p class="articletext">
+                    Pregnant mothers were never warned that the acetaminophen found in Tylenol and over-the-counter pain medication could lead to a higher risk of having a child diagnosed with autism spectrum disorder.
+
+                      </p>
+
+
+                   <h3 class="subtitle font-semibold question-title">Financial Compensation for Families </h3>
+                      <p class="articletext">
+                          Mothers who took Tylenol or Generic Acetaminophen during pregnancy and whose child was diagnosed with autism spectrum disorder can get justice and compensation
+                          can request a free, private case evaluation for potential compensation by filling out the form above.
+
+                      </p>
+                    <button class="formbutton w-button" id="checkcompensation">Check Compensation Eligibility</button>
+
+
+
+
+
+                      </p>
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
