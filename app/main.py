@@ -40,10 +40,8 @@ async def process_ccpa(request):
     return JSONResponse({"Success":True})
 
 async def process(request):
-    payload = await request.json()
-    payload['child_under_18'] = payload['child_under_18'].lower()
-    payload['asd_diagnosis'] = payload['asd_diagnosis'].lower()
-    payload = {
+    payload = await request.form()
+    postdata = {
                 'lp_campaign_id' : "6348d8d6859cf",
                 "lp_campaign_key" : "WtCHRxBbvYc9VLhkpJD7",
                 "trusted_form_cert_id" : payload['trusted_form_cert_id'],
@@ -63,25 +61,26 @@ async def process(request):
                 "ip_address" : request.client.host,
                 "brand" : payload['brand'],
                 "description" : payload['description'],
-                "under_18" : payload['child_under_18'],
-                "diagnosed_asd" : payload['asd_diagnosis']
+                "under_18" : payload['child_under_18'].lower(),
+                "diagnosed_asd" : payload['asd_diagnosis'].lower()
     }
     logger.info(payload)
     async with httpx.AsyncClient() as client:
-        r = await client.post('https://leadsapi.leadspediatrack.com/post.do', data = payload)
+        r = await client.post('https://leadsapi.leadspediatrack.com/post.do', data = postdata)
         r = r.json()
+        logger.info(r)
     if r.get('errors'):
         return JSONResponse({"error":True})
     else:
-        if payload['child_under_18'] == 'yes' and payload['diagnosed_asd'] == 'yes':
+        if postdata['child_under_18'] == 'yes' and postdata['asd_diagnosis'] == 'yes':
             await fire_fb_pixel(
                         access_token = access_token,
                         pixel_id = pixel_id,
                         url = url,
                         ip_address = request.client.host,
                         user_agent= request.headers['user-agent'],
-                        email = payload['email'],
-                        phone = payload['phonenumber']
+                        email = postdata['email'],
+                        phone = postdata['phonenumber']
             )
         return JSONResponse({"success": True})
 
@@ -89,7 +88,7 @@ async def process(request):
 routes = [
     Route('/', endpoint=index),
     Route('/ccpa',endpoint = ccpa),
-    Route('/success', endpoint=success),
+    Route('/complete', endpoint=success),
     Route('/failure', endpoint=failure),
     Mount('/static', StaticFiles(directory='static'), name='static'),
     Route('/api/ccpa', endpoint=process_ccpa,methods = ["POST"]),
@@ -97,7 +96,7 @@ routes = [
 ]
 
 middlewears = [ Middleware(ProxyHeadersMiddleware, trusted_hosts="*") ,
-#                Middleware(HTTPSRedirectMiddleware),
+                Middleware(HTTPSRedirectMiddleware),
                 Middleware(CORSMiddleware, allow_origins=['*'], allow_headers = ['*'],allow_methods = ['*'])
 
                 ]
