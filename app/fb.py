@@ -10,9 +10,9 @@ from facebook_business.api import FacebookAdsApi
 
 
 
-async def fire_fb_pixel(access_token, pixel_id,url, ip_address = None, user_agent=None,fname = None,lname = None,email=  None,phone = None, test_code = None):
+async def fire_fb_pixel(access_token, pixel_id,url, ip_address = None, fname = None,lname = None,email=  None,phone = None,user_agent =None):
     FacebookAdsApi.init(access_token=access_token)
-    user_data = UserData(client_ip_address=ip_address,email = email, phone = phone,last_name=lname,first_name=fname)
+    user_data = UserData(client_ip_address=ip_address,email = email, phone = phone,last_name=lname,first_name=fname,client_user_agent = user_agent)
     event = Event(
         event_source_url = url,
         event_name="Lead",
@@ -29,27 +29,26 @@ if __name__ =="__main__":
     import asyncio
 
     pixel_id = '612226083918432'
-    access_token = 'EAADoycsKvREBAHDDrdoZCqo8JJWcpWZCjrph6rspxmPW4tIbb2w9UbRYTBu8mqn6dQ3r0PXjizcXc3pKKFouM3wlVybThL7GcnEPbVa1MIjbNa6DyR8hJYSCkz2TUD398214fAZAfL1EWjyHQHl6CYZB4Y85OogBhZA6rLwLVkDpw9RChHzv8BmEKklqhnZCoZD'
+    access_token = 'EAADoycsKvREBADY8xdz8IRRfh6XKXgNaopzVvzUp21tCtW7kEFAH1J7yBk1NqVWrNoOngVrXsZA8s0GHvs2vEu6TBnkMMlgvuuHJARsUX7MH9CRlPpZAPY05D9gZCQi54ZC727Qp1FaV8A5kxtXFZBEK2cSvm1bMusrZCoOrO1AmwV2q61DvZAC3C8FExnC4d0ZD'
     url = 'https://tylenolautism.consumerinjurysettlements.com'
 
     leads = [
         {
-            'fname': "Naqqasha",
-            'lname': "Syed",
-            "ip_address": "43.247.121.22",
-            "email": "naqqasha.syed@hotmail.com",
-            "phone": "12533398199"
-
+            'fname':"Kaitlyn",
+            'lname':"Moyer",
+            "email":"KateMoyer22@gmail.com",
+            "phone":"5732024288",
+            "ip_address":"166.196.114.61",
+            "url":url,
         },
         {
-            'fname': "Marobeny",
-            'lname': "De los Santos",
-            "ip_address": "68.196.222.70",
-            "email": "Marobenyhernandez@gmail.com",
-            "phone": "19293511457"
-
-        }
-
+            'fname': "Sophie",
+            'lname': "Umoru",
+            "email": "Sofiabdul@gmail.com",
+            "phone": "8322311434",
+            "ip_address": "98.196.75.7",
+            "url": url,
+        },
     ]
     for l in leads:
         r = asyncio.run(fire_fb_pixel(access_token = access_token,pixel_id = pixel_id,
@@ -58,5 +57,5 @@ if __name__ =="__main__":
                                       lname = l['lname'],
                                       email = l['email'],
                                       phone = l['phone']
-                              ))
+                                      ))
         print(r)

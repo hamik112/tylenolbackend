@@ -13,7 +13,7 @@ import httpx
 
 
 pixel_id ='612226083918432'
-access_token ='EAADoycsKvREBAGeTwQkAX6xZBZBvXXdZCoX3NV0YLMFqttemnjxg7dLCUSWRAr4xYJFSMQmAlydZBdOnBGEDJfRaZAl9AYV2ZAjgDOunaoACGA3zRFzfJC0Pt6sVhNmXSoTUDLAHaYfutDtgAkSeFbkzZBBssNgpCylDOH9Y4bhywj6ZCiEZAh2ZCW'
+access_token ='EAADoycsKvREBADY8xdz8IRRfh6XKXgNaopzVvzUp21tCtW7kEFAH1J7yBk1NqVWrNoOngVrXsZA8s0GHvs2vEu6TBnkMMlgvuuHJARsUX7MH9CRlPpZAPY05D9gZCQi54ZC727Qp1FaV8A5kxtXFZBEK2cSvm1bMusrZCoOrO1AmwV2q61DvZAC3C8FExnC4d0ZD'
 url = 'https://tylenolautism.consumerinjurysettlements.com'
 
 
@@ -72,17 +72,15 @@ async def process(request):
     if r.get('errors'):
         return JSONResponse({"error":True})
     else:
-
-
         if postdata['under_18'] == 'yes' and postdata['diagnosed_asd'] == 'yes':
             await fire_fb_pixel(
                         access_token = access_token,
                         pixel_id = pixel_id,
+                        user_agent = request.headers['user-agent'],
                         url = url,
                         fname = postdata['first_name'],
                         lname = postdata['last_name'],
                         ip_address = request.client.host,
-                        user_agent= request.headers['user-agent'],
                         email = postdata['email_address'],
                         phone = postdata['phone_home']
             )
