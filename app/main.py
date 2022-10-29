@@ -74,7 +74,7 @@ async def process(request):
     else:
 
 
-        if postdata['child_under_18'] == 'yes' and postdata['asd_diagnosis'] == 'yes':
+        if postdata['under_18'] == 'yes' and postdata['diagnosed_asd'] == 'yes':
             await fire_fb_pixel(
                         access_token = access_token,
                         pixel_id = pixel_id,
