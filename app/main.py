@@ -25,7 +25,7 @@ async def index(request):
 
 
 async def success(request):
-    return templates.TemplateResponse('complete.html', {'request': request})
+    return templates.TemplateResponse('success.html', {'request': request})
 
 
 async def failure(request):
@@ -70,21 +70,12 @@ async def process(request):
         r = r.json()
         logger.info(r)
     if r.get('errors'):
-        return JSONResponse({"error":True})
+        return JSONResponse({"success":False})
     else:
         if postdata['under_18'] == 'yes' and postdata['diagnosed_asd'] == 'yes':
-            await fire_fb_pixel(
-                        access_token = access_token,
-                        pixel_id = pixel_id,
-                        user_agent = request.headers['user-agent'],
-                        url = url,
-                        fname = postdata['first_name'],
-                        lname = postdata['last_name'],
-                        ip_address = request.client.host,
-                        email = postdata['email_address'],
-                        phone = postdata['phone_home']
-            )
-        return JSONResponse({"success": True})
+            return JSONResponse({"success": True})
+        else:
+            return JSONResponse({"success": False})
 
 
 routes = [

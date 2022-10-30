@@ -407,14 +407,14 @@ $("form").submit(function(e) {
                 contentType: false,
                 data: data,
                 success: function (response, status, xhr) {
+                    console.log(response);
                     form_submitting = false;
-                    if (!response.error) {
-                        window.location.replace("/complete");
-                    } else {
-                        window.location.replace("/complete");
-                        console.log(response)
+                    if(response.success == true){
+                        window.location.replace("/success");
                     }
-                    // window.location.replace("/complete");
+                    if(response.success == false){
+                        window.location.replace("/complete");
+                    }
                 },
                 error: function (response, status, xhr) {
                     form_submitting = false;
