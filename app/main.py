@@ -81,8 +81,8 @@ async def process(request):
 routes = [
     Route('/', endpoint=index),
     Route('/ccpa',endpoint = ccpa),
-    Route('/complete', endpoint=success),
-    Route('/failure', endpoint=failure),
+    Route('/success', endpoint=success),
+    Route('/complete', endpoint=failure),
     Mount('/static', StaticFiles(directory='static'), name='static'),
     Route('/api/ccpa', endpoint=process_ccpa,methods = ["POST"]),
     Route('/api/submitform', endpoint=process,methods = ["POST"]),
