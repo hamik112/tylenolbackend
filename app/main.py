@@ -69,13 +69,10 @@ async def process(request):
         r = await client.post('https://leadsapi.leadspediatrack.com/post.do', data = postdata)
         r = r.json()
         logger.info(r)
-    if r.get('errors'):
-        return JSONResponse({"success":False})
+    if postdata['under_18'] == 'yes' and postdata['diagnosed_asd'] == 'yes':
+        return JSONResponse({"success": True})
     else:
-        if postdata['under_18'] == 'yes' and postdata['diagnosed_asd'] == 'yes':
-            return JSONResponse({"success": True})
-        else:
-            return JSONResponse({"success": False})
+        return JSONResponse({"success": False})
 
 
 routes = [
