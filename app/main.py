@@ -18,9 +18,12 @@ url = 'https://tylenolautism.consumerinjurysettlements.com'
 
 
 templates = Jinja2Templates(directory='templates')
-
+blacklisted_ips = ['107.122.93.22',]
 
 async def index(request):
+    for ip in blacklisted_ips:
+        if request.client.host == ip:
+            return templates.TemplateResponse('blacklist.html', {'request': request})
     return templates.TemplateResponse('index.html', {'request': request})
 
 
