@@ -49,16 +49,46 @@
             <div class="mid-cont-wider w-container">
 
 
-                <h1 class="title">Mothers who took Tylenol<sup class="smallup">®</sup> during pregnancy and gave birth to a child that was diagnosed with Autism may qualify for Compensation!</h1>
+                <h1 class="title"> Mothers who took Tylenol or an over-the-counter pain medication during pregnancy whose child was
+                diagnosed with Autism can get Justice and Compensation!</h1>
                 <img src="{{ url_for('static', path='/images/mom.jpg') }}" class="body-img"/>
                 <div id="contenthidden">
                     <div class="mx-auto">
                         <p class="articletext">
-                            If you took Tylenol<sup class="smallerup">®</sup>  or generic acetaminophen during your pregnancy and your child was diagnosed with Autism you may qualify for <strong>significant compensation</strong>.
-                            Fill out the form below to see if you qualify for compensation.
-
-
+                            Pregnant mothers were never warned that the acetaminophen found in Tylenol and
+                        over-the-counter pain medication could lead to a higher risk of having a child diagnosed with
+                        autism spectrum disorder.
                         </p>
+                <button class="formbutton w-button" id="checkcompensation">Check Compensation Eligibility</button>
+
+
+
+
+                                <p class="articletext">
+                    Recent Studies suggest taking acetaminophen during pregnancy may increase the risk of having a child
+                    with Autism Spectrum Disorder. This includes products such as: </p>
+                <div class="mb-4">
+                    <ul>
+                        <li style='line-height:1.1;' class="articletext">Tylenol®</li>
+                        <li style='line-height:1.1;' class="articletext">Excedrin®</li>
+                        <li style='line-height:1.1;' class="articletext"> Nyquil®</li>
+                        <li style='line-height:1.1;' class="articletext"> Topamax®</li>
+                        <li style='line-height:1.1;' class="articletext"> Dayquil®</li>
+                        <li style='line-height:1.1;' class="articletext">CVS®, Walgreens® Brand Acetaminophen</li>
+                        <li style='line-height:1.1;' class="articletext">Other Generic Brand Acetaminophen</li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <p class="articletext"><strong>Mothers who took Tylenol® or similar acetaminophen products during
+                        pregnancy and had a child diagnosed with autism spectrum disorder can check if they qualify for
+                        compensation by filling out the form below for a free confidential case evaluation.
+                    </strong></p>
+
+
 
 
                     </div>
@@ -66,7 +96,7 @@
                         <div id="form">
                             <div class='form-container'>
                                 <div class="text-indicator">
-                                    <h3 class="subtitle font-semibold question-title">Free Compensation Eligibility Check</h3>
+                                    <h3 class="subtitle font-semibold question-title">FREE CLAIM EVALUATION</h3>
                                 </div>
 
                                 <input id="leadid_token" name="universal_leadid" type="hidden" value=""/>
@@ -157,35 +187,6 @@
                     </form>
 
 
-                       <h3 class="subtitle font-semibold question-title">New Studies Link Tylenol to Autism</h3>
-
-
-
-                      <p class="articletext">
-                          Researchers from John Hopkins examined 20 years of studies of early life factors influencing pregnancy and child development and
-                          found children whose cord blood samples contained high levels of acetaminophen, the generic name for Tylenol were <strong> almost three times</strong> more likely to be diagnosed with autism spectrum disorder later in childhood.
-
-                        </p>
-                      <p class="articletext">
-                    Pregnant mothers were never warned that the acetaminophen found in Tylenol and over-the-counter pain medication could lead to a higher risk of having a child diagnosed with autism spectrum disorder.
-
-                      </p>
-
-
-                   <h3 class="subtitle font-semibold question-title">Financial Compensation for Families </h3>
-                      <p class="articletext">
-                          Mothers who took Tylenol or Generic Acetaminophen during pregnancy and whose child was diagnosed with autism spectrum disorder can get justice and compensation
-                          can request a free, private case evaluation for potential compensation by filling out the form above.
-
-                      </p>
-                    <button class="formbutton w-button" id="checkcompensation">Check Compensation Eligibility</button>
-
-
-
-
-
-                      </p>
-
 
 
 
@@ -253,7 +254,7 @@ $(document).ready(function() {
     $("#checkcompensation").click(function() {
         $([document.documentElement, document.body]).animate({
             scrollTop: $("#form").offset().top
-        }, 500);
+        }, 300);
     });
 
 

@@ -1166,13 +1166,9 @@ h6 {
 
 .form-container {
     max-width: 520px;
-    padding: 15px;
     margin: 0 auto;
-    background: rgb(242, 242, 242);
-       border: 2px solid rgb(237, 237, 237);
 
 
-    border-radius: 4px;
 }
 
 .form-check-label {
